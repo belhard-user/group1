@@ -29,4 +29,15 @@ class TestController extends Controller
             ->action('TestController@index')
             ->withCookie(cookie('cookiename', 'value of my cookie'));
     }
+
+    public function valid(Request $request)
+    {
+        $validator = $this->validate($request, []);
+
+        if($validator->fails()){
+            dd($validator->messages());
+        }else{
+            dd('Прошли проверку');
+        }
+    }
 }

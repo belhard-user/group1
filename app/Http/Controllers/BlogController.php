@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
+use \App\Http\Requests\ArticleCreateRequest;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -41,7 +41,7 @@ class BlogController extends Controller
         return view('blog.create');
     }
 
-    public function store(Request $request)
+    public function store(ArticleCreateRequest $request)
     {
         Post::create($request->all());
 

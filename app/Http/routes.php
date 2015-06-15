@@ -12,5 +12,6 @@ get('blog/create', ['as'=>'blog.create', 'uses'=>'BlogController@create']);
 post('blog/store', ['as'=>'blog.store', 'uses'=>'BlogController@store']);
 
 get('model', 'TestController@model');
+get('valid', 'TestController@valid');
 post('create', 'TestController@store');
 get('hello-world-index', 'TestController@index');
