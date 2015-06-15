@@ -2,8 +2,14 @@
 /*
  * Blog controller route
  */
-get('/', ['as' => 'blog.main', 'uses' => 'BlogController@index']);
+get('/', function(){
+    return view('welcome');
+});
+
+get('blog', ['as' => 'blog', 'uses' => 'BlogController@index']);
 get('blog/show/{id}', ['as'=>'blog.show', 'uses'=>'BlogController@show']);
+get('blog/create', ['as'=>'blog.create', 'uses'=>'BlogController@create']);
+post('blog/store', ['as'=>'blog.store', 'uses'=>'BlogController@store']);
 
 get('model', 'TestController@model');
 post('create', 'TestController@store');

@@ -146,6 +146,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Illuminate\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -197,6 +198,9 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'LocalizedCarbon'   => Laravelrus\LocalizedCarbon\LocalizedCarbon::class,
         'DiffFormatter'     => Laravelrus\LocalizedCarbon\DiffFactoryFacade::class,
+        'Form'=> Illuminate\Html\FormFacade::class,
+        'HTML'=> Illuminate\Html\HtmlFacade::class,
+
 
     ],
 

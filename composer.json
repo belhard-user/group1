@@ -10,7 +10,8 @@
         "fzaninotto/faker": "^1.6@dev",
         "barryvdh/laravel-ide-helper": "^2.0@dev",
         "barryvdh/laravel-debugbar": "^2.0@dev",
-        "laravelrus/localized-carbon": "dev-master"
+        "laravelrus/localized-carbon": "dev-master",
+        "illuminate/html": "5.0.*"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",

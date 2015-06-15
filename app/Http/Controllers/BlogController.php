@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -33,5 +34,17 @@ class BlogController extends Controller
         $post = Post::findOrFail($id);
 
         return view('blog.show', compact('post'));
+    }
+
+    public function create()
+    {
+        return view('blog.create');
+    }
+
+    public function store(Request $request)
+    {
+        Post::create($request->all());
+
+        return redirect()->route('blog');
     }
 }
