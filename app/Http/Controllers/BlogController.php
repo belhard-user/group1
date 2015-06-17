@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use \App\Http\Requests\ArticleCreateRequest;
@@ -11,6 +12,12 @@ use App\Http\Controllers\Controller;
 
 class BlogController extends Controller
 {
+    function __construct()
+    {
+//        $this->middleware('auth', ['only' => 'create']);
+//        $this->middleware('admin', ['only' => 'create']);
+    }
+
     /**
      * Главная страница
      *
@@ -29,21 +36,25 @@ class BlogController extends Controller
      * @param $id
      * @return \Illuminate\View\View
      */
-    public function show($id)
+    public function show($blog)
     {
-        $post = Post::findOrFail($id);
-
-        return view('blog.show', compact('post'));
+        return view('blog.show', ['post' => $blog]);
     }
 
     public function create()
     {
-        return view('blog.create');
+        $tags = Tag::all()->lists('name', 'id');
+
+        return view('blog.create', compact('tags'));
     }
 
     public function store(ArticleCreateRequest $request)
     {
-        Post::create($request->all());
+        $post = new Post($request->all());
+
+        $article = \Auth::user()->post()->save($post);
+
+        $article->tags()->attach($request->input('tags'));
 
         return redirect()->route('blog');
     }

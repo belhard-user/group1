@@ -12,6 +12,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 {
     use Authenticatable, CanResetPassword;
 
+    const ROLE_ADMIN = 2;
+    const ROLE_USER = 1;
+
     /**
      * The database table used by the model.
      *
@@ -32,4 +35,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function post()
+    {
+        return $this->hasMany('App\Post');
+    }
 }

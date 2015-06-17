@@ -21,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
         {
             return $value == 'foo';
         });
+
+
     }
 
     /**

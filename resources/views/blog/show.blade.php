@@ -12,4 +12,13 @@
             {{ $post->body }}
         </div>
     </article>
+
+    @unless($post->tags->isEmpty())
+        <h5>Категории:</h5>
+        <ul>
+        @foreach($post->tags as $tag)
+            <li>{{ $tag->name }}</li>
+        @endforeach
+        </ul>
+    @endunless
 @stop

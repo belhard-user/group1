@@ -18,4 +18,14 @@ class Post extends Model
     {
         $this->attributes['published_at'] = Carbon::parse($field);
     }
+
+    public function writes()
+    {
+        return $this->belongsTo('App\User', 'user_id', 'id');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag')->withTimestamps();
+    }
 }
