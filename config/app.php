@@ -52,8 +52,9 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ru',
 
+    // lang/ru/validatio.php
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -65,7 +66,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'ru',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------

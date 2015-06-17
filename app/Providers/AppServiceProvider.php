@@ -16,6 +16,11 @@ class AppServiceProvider extends ServiceProvider
         /*view()->composer('index', function($view){
             $view->with('name', new \App\Name);
         });*/
+
+        \Validator::extend('foo', function($attribute, $value, $parameters)
+        {
+            return $value == 'foo';
+        });
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+use App\Http\Requests;
 /*
  * Blog controller route
  */
@@ -15,3 +16,11 @@ get('model', 'TestController@model');
 get('valid', 'TestController@valid');
 post('create', 'TestController@store');
 get('hello-world-index', 'TestController@index');
+
+/*test routes*/
+/*get('form', function(){
+    return view('form');
+});
+post('store', function(App\Http\Requests\TestRequest $request){
+    dd($request->all());
+});*/
